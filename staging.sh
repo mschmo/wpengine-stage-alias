@@ -22,7 +22,13 @@ do
 done
 
 # Start nginx service
-sudo nginx
+ps cax | grep nginx > /dev/null
+if [ $? -eq 0 ]; then
+  echo "Nginx is already running. Reloading..."
+  sudo nginx -s reload
+else
+  sudo nginx
+fi
 echo "Staging servers started. Access at:"
 for site in "${sites[@]}"
 do
