@@ -8,7 +8,7 @@ command -v brew >/dev/null 2>&1 || {
 
 # Install nginx-full with subs filter module
 brew tap homebrew/nginx
-sudo brew install nginx-full --with-subs-filter-module
+brew install nginx-full --with-subs-filter-module
 
 # Configure hosts file and nginx servers
 declare -a sites=("$@")
